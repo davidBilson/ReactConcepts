@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 const UseEffectFetchData = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState({})
+  const [id, setId] = useState(1);
+
    useEffect(() => {
-    const getData = async () => {
+    async () => {
       try {
-        const res = await axios.get('https://jsonplaceholder.typicode.com/posts')
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        console.log(res)
         if (res.status === 200) {
           setData(res.data);
         } else {
@@ -15,14 +19,19 @@ const UseEffectFetchData = () => {
         console.log(error)
       }
     }
-    getData()
-   }, [])
+  }, [id])
+
+  // getData()
   return (
-    <ul>
-      {data.map(item => (
-        <li key={item.id}>#{item.title}</li>
-      ))}
-    </ul>
+    <>
+      <input type="text" placeholder='Enter Item Id' value={id} onChange={(e) => setId(e.target.value)} />
+      <div>{data.id} {data.title} --</div>
+      {/* <ul>
+        {data.map(item => (
+          <li key={item.id}>#{item.title}</li>
+        ))}
+      </ul> */}
+    </>
   )
 }
 export default UseEffectFetchData

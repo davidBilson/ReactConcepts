@@ -18,11 +18,11 @@ const UseEffectFetchData = () => {
     getData()
    }, [])
   return (
-    <div>
+    <ul>
       {data.map(item => (
-        <div key={item.id}>#{item.title}</div>
+        <li key={item.id}>#{item.title}</li>
       ))}
-    </div>
+    </ul>
   )
 }
 export default UseEffectFetchData

@@ -7,6 +7,7 @@ const NavBar = () => {
         <div className={style.logo}>React Concepts</div>
         <div className={style.navLinks}>
             <NavLink to='/'>React Hooks</NavLink>
+            <NavLink to='/zustand'>Zustand</NavLink>
         </div>
     </nav>
   )

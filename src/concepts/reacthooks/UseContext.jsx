@@ -1,18 +1,31 @@
 import React from 'react'
 import UseContextA from './UseContextA'
+import UseContextB from './UseContextB';
 
 // Create context and export it for it to be available anywhere
-export const UserContext = React.createContext()
+export const UserContext = React.createContext();
+export const DayContext = React.createContext();
+export const ClickContext = React.createContext();
 
 const UseContext = () => {
+
+    const shoutOut = () => {
+        alert("Perfectly navigating context")
+    }
+
   return (
     <>
         <h1>useContext</h1>
-        <UserContext.Provider value={"Creating, and consuming contexts in react"}>
-            <UseContextA />
+        <UserContext.Provider value={"Creating, and consuming"}>
+            <DayContext.Provider value="Sunday">
+                <ClickContext.Provider value={shoutOut}>
+                    <UseContextA />
+                </ClickContext.Provider>
+            </DayContext.Provider>
         </UserContext.Provider>
     </>
   )
+
 }
 
 export default UseContext

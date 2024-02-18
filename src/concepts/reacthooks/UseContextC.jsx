@@ -1,17 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 // import context to be able to use it
-import { UserContext } from './UseContext';
+import { UserContext, DayContext, ClickContext } from './UseContext';
 
 const UseContextC = () => {
+    const user = useContext(UserContext);
+    const day = useContext(DayContext);
+    const click = useContext(ClickContext);
   return (
     <>
-        <UserContext.Consumer>
-            { user => {
-                return (
-                    <div>User context value : {user}</div>
-                )
-            }}
-        </UserContext.Consumer>
+        <p>Topic: {user} </p>
+        <p>Day: {day}</p>
+        <button onClick={click}>Shout Out</button>
     </>
   )
 }

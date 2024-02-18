@@ -2,6 +2,7 @@ import React from 'react';
 import StateHook from './StateHook';
 import UseEffectHook from './UseEffectHook';
 import UseEffectFetchData from './UseEffectFetchData';
+import UseContext from './UseContext';
 
 const ReactHooks = () => {
   return (
@@ -10,6 +11,8 @@ const ReactHooks = () => {
         <UseEffectHook />
         <br /><br />...
         <UseEffectFetchData />
+        <br /><br />...
+        <UseContext />
     </>
   )
 }

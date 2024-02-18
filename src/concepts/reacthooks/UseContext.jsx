@@ -1,9 +1,16 @@
 import React from 'react'
+import UseContextA from './UseContextA'
+
+// Create context and export it for it to be available anywhere
+export const UserContext = React.createContext()
 
 const UseContext = () => {
   return (
     <>
-        
+        <h1>useContext</h1>
+        <UserContext.Provider value={"Creating, and consuming contexts in react"}>
+            <UseContextA />
+        </UserContext.Provider>
     </>
   )
 }
@@ -19,3 +26,7 @@ export default UseContext
 // So, while useState is used for managing local component state, useContext is used for accessing shared data or functions throughout the application via the Context API. These two hooks serve complementary purposes and are often used together to manage both local and shared state in React applications.
 
 // Finally Context provides a way to pass data through the component tree without having to pass props down manually at every level
+
+// 3 steps in using contexts
+// Step 1 - create context
+// Step 2 - provide context with a value, provider must wrap the children component for the value to be available

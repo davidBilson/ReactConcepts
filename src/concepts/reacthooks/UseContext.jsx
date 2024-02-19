@@ -15,6 +15,7 @@ const UseContext = () => {
 
   return (
     <>
+        
         <h1>useContext</h1>
         <UserContext.Provider value={"Creating, and consuming"}>
             <DayContext.Provider value="Sunday">

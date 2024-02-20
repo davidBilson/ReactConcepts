@@ -1,24 +1,14 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
+import useStore from '../../store/useStore';
 
 const Users = () => {
-    const [users, setUsers] = useState([]);
 
-    const fetchUserData = async () => {
-        try {
-            const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-            // console.log(res);
-            if (res.status === 200) {
-                setUsers(res.data)
-            } else {
-                return;
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    }
+    const users = useStore(state => state.users)
+    const fetchUser = useStore(state => state.fetchUsers)
+
     useEffect(() => {
-        fetchUserData();
+        fetchUser();
     }, []);
 
   return (

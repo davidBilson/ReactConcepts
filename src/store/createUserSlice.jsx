@@ -2,6 +2,7 @@ import axios from "axios";
 
 const createUserSlice = (set, get) => ({
     users: [],
+    friends: [],
     fetchUsers: async () => {
         try {
             const res = await axios.get("https://jsonplaceholder.typicode.com/users");
@@ -15,4 +16,9 @@ const createUserSlice = (set, get) => ({
             console.error("Error fetching users:", err)
         }
     },
+    addToFriends: (user) => {
+        set({friends: [...get().friends, user]})
+    }
 })
+
+export default createUserSlice;

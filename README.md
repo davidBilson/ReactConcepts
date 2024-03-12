@@ -1,3 +1,6 @@
+# Some must-know concepts in ReactJS
+This repo contains some real-world industry-level concepts in ReactJS
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

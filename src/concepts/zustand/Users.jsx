@@ -4,8 +4,9 @@ import useStore from '../../store/useStore';
 
 const Users = () => {
 
-    const users = useStore(state => state.users)
-    const fetchUser = useStore(state => state.fetchUsers)
+    const users = useStore(state => state.users);
+    const fetchUser = useStore(state => state.fetchUsers);
+    const addToFriends = useStore(state => state.addToFriends);
 
     useEffect(() => {
         fetchUser();
@@ -16,7 +17,7 @@ const Users = () => {
         <ul>
             {
                 users.map(user => (
-                    <li key={user.id}>{user.name}</li>
+                    <li key={user.id} onClick={() => addToFriends(user) }>{user.name}</li>
                 ))
             }
         </ul>

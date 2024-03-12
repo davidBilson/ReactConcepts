@@ -17,8 +17,10 @@ const createUserSlice = (set, get) => ({
         }
     },
     addToFriends: (user) => {
-        set({friends: [...get().friends, user]})
-    }
+        set({
+            friends: [...new Set([...get().friends, user])]
+        })
+    },
 })
 
 export default createUserSlice;
